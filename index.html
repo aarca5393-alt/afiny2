@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гостиница — Отдых и уют</title>
+    <title>Гостиница — Главная</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
-        body { font-family: 'Raleway', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;600&display=swap');
+        body { font-family: 'Raleway', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .hero-bg { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/1.jpg') center/cover no-repeat; }
+        .hero-section { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/1.jpg') center/cover no-repeat; }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-900 overflow-x-hidden">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-stone-100">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-widest text-amber-800 uppercase">Hotel</a>
             <div class="hidden md:flex space-x-8 uppercase text-[10px] tracking-[0.2em] font-bold text-stone-600">
@@ -28,25 +28,25 @@
         </div>
     </nav>
 
-    <section class="hero-bg h-screen flex items-center justify-center text-center text-white">
+    <header class="hero-section h-screen flex items-center justify-center text-center text-white">
         <div data-aos="fade-up" data-aos-duration="1500">
-            <h1 class="text-5xl md:text-8xl mb-6">Ваш отдых начинается здесь</h1>
-            <p class="text-xl md:text-2xl font-light mb-10">Комфорт, забота и уют в каждой детали</p>
-            <a href="rooms.html" class="border-2 border-white px-12 py-4 hover:bg-white hover:text-black transition duration-300 tracking-widest uppercase text-sm">Выбрать номер</a>
+            <h1 class="text-5xl md:text-8xl mb-6 italic">Добро пожаловать</h1>
+            <p class="text-xl font-light mb-10 tracking-widest">УЮТ И КОМФОРТ В КАЖДОЙ ДЕТАЛИ</p>
+            <a href="rooms.html" class="border-2 border-white px-12 py-4 hover:bg-white hover:text-black transition duration-300 uppercase text-xs tracking-widest">Выбрать номер</a>
         </div>
-    </section>
+    </header>
 
     <section id="pool" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-right">
                     <h2 class="text-4xl md:text-5xl mb-8 italic text-amber-900">Наш Бассейн</h2>
                     <p class="text-stone-600 leading-relaxed mb-8 text-lg">
-                        На территории отеля расположен освежающий бассейн. Это идеальное место для утреннего бодрящего заплыва или ленивого отдыха под солнцем. Вода всегда поддерживается в идеальной чистоте для вашего комфорта.
+                        На территории нашей гостиницы расположен просторный и чистый бассейн. Идеальное место, чтобы освежиться в жаркий день или расслабиться после прогулок. Мы внимательно следим за качеством воды, чтобы ваш отдых был безопасным и приятным.
                     </p>
                     <div class="grid grid-cols-2 gap-4">
-                        <img src="images/10.jpg" class="rounded-lg shadow-lg h-48 w-full object-cover" data-aos="zoom-in" data-aos-delay="200">
-                        <img src="images/11.jpg" class="rounded-lg shadow-lg h-48 w-full object-cover" data-aos="zoom-in" data-aos-delay="400">
+                        <img src="images/10.jpg" class="rounded shadow-lg h-40 w-full object-cover" data-aos="zoom-in">
+                        <img src="images/11.jpg" class="rounded shadow-lg h-40 w-full object-cover" data-aos="zoom-in" data-aos-delay="200">
                     </div>
                 </div>
                 <div class="relative" data-aos="fade-left">
@@ -67,7 +67,7 @@
 
     <section class="py-24 bg-stone-100 overflow-hidden">
         <div class="container mx-auto px-6 text-center mb-16">
-            <h2 class="text-4xl font-serif mb-4 italic">Галерея отеля</h2>
+            <h2 class="text-4xl italic mb-4">Фотогалерея</h2>
             <div class="h-1 w-20 bg-amber-800 mx-auto"></div>
         </div>
         <div class="swiper gallerySwiper px-10">
@@ -75,12 +75,7 @@
                 <script>
                     for(let i=1; i<=12; i++){
                         let ext = (i === 5) ? 'png' : 'jpg';
-                        document.write(`
-                        <div class="swiper-slide">
-                            <div class="h-80 overflow-hidden rounded-lg shadow-md">
-                                <img src="images/${i}.${ext}" class="w-full h-full object-cover hover:scale-110 transition duration-700">
-                            </div>
-                        </div>`);
+                        document.write(`<div class="swiper-slide"><div class="h-80 overflow-hidden rounded-lg shadow-md"><img src="images/${i}.${ext}" class="w-full h-full object-cover hover:scale-110 transition duration-700"></div></div>`);
                     }
                 </script>
             </div>
@@ -92,22 +87,17 @@
     <section id="contacts" class="py-24 bg-white">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
             <div data-aos="fade-up">
-                <h2 class="text-4xl font-serif mb-8 italic">Как нас найти</h2>
-                <div class="space-y-6">
-                    <div>
-                        <p class="text-amber-800 font-bold uppercase text-xs tracking-widest mb-2">Адрес</p>
-                        <p class="text-xl">Россия, Ваш город, ул. Примерная, 1</p>
-                    </div>
-                    <div>
-                        <p class="text-amber-800 font-bold uppercase text-xs tracking-widest mb-2">Телефон</p>
-                        <p class="text-xl font-semibold">+7 (XXX) XXX-XX-XX</p>
-                    </div>
+                <h2 class="text-4xl italic mb-8">Контакты</h2>
+                <div class="space-y-6 text-lg">
+                    <p>📍 Адрес: Ваш город, ул. Примерная, д. 1</p>
+                    <p>📞 Телефон: +7 (999) 000-00-00</p>
                     <div class="pt-6">
-                        <a href="https://link.2gis.ru/4.3/25C27D96/..." target="_blank" class="inline-block bg-amber-800 text-white px-10 py-4 shadow-lg hover:bg-stone-900 transition tracking-widest uppercase text-xs font-bold">Забронировать сейчас</a>
+                        <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw=="
+                           target="_blank" class="bg-amber-800 text-white px-10 py-4 hover:bg-stone-900 transition tracking-widest uppercase text-xs font-bold">Забронировать в 2ГИС</a>
                     </div>
                 </div>
             </div>
-            <div class="h-[450px] rounded-2xl overflow-hidden shadow-2xl border-8 border-stone-50" data-aos="fade-left">
+            <div class="h-96 rounded-2xl overflow-hidden shadow-xl" data-aos="fade-left">
                 <iframe src="https://yandex.ru/map-widget/v1/-/CCU8Z-RpkA" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         </div>
@@ -117,15 +107,11 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         AOS.init({ once: true });
-        new Swiper(".poolSwiper", {
-            loop: true,
-            autoplay: { delay: 3000 },
-            pagination: { el: ".swiper-pagination", clickable: true }
-        });
+        new Swiper(".poolSwiper", { loop: true, pagination: { el: ".swiper-pagination", clickable: true } });
         new Swiper(".gallerySwiper", {
-            slidesPerView: 1, spaceBetween: 25, loop: true,
+            slidesPerView: 1, spaceBetween: 20, loop: true,
             navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-            breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 }, 1280: { slidesPerView: 4 } }
+            breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 4 } }
         });
     </script>
 </body>
