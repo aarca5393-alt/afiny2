@@ -30,7 +30,7 @@
 
     <header class="hero-section h-screen flex items-center justify-center text-center text-white">
         <div data-aos="fade-up" data-aos-duration="1500">
-            <h1 class="text-5xl md:text-8xl mb-6 italic">Добро пожаловать</h1>
+            <h1 class="text-5xl md:text-8xl mb-6 italic">Добро пожаловать в Афины</h1>
             <p class="text-xl font-light mb-10 tracking-widest">УЮТ И КОМФОРТ В КАЖДОЙ ДЕТАЛИ</p>
             <a href="rooms.html" class="border-2 border-white px-12 py-4 hover:bg-white hover:text-black transition duration-300 uppercase text-xs tracking-widest">Выбрать номер</a>
         </div>
@@ -84,24 +84,60 @@
         </div>
     </section>
 
-    <section id="contacts" class="py-24 bg-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
-            <div data-aos="fade-up">
-                <h2 class="text-4xl italic mb-8">Контакты</h2>
-                <div class="space-y-6 text-lg">
-                    <p>📍 Адрес: Ваш город, ул. Примерная, д. 1</p>
-                    <p>📞 Телефон: +7 (999) 000-00-00</p>
-                    <div class="pt-6">
-                        <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw=="
-                           target="_blank" class="bg-amber-800 text-white px-10 py-4 hover:bg-stone-900 transition tracking-widest uppercase text-xs font-bold">Забронировать в 2ГИС</a>
-                    </div>
+<section id="contacts" class="py-24 bg-white">
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
+        <div data-aos="fade-up">
+            <h2 class="text-4xl italic mb-8 italic">Контакты</h2>
+            <div class="space-y-6 text-lg">
+                <p class="flex items-center gap-3">
+                    <span class="text-amber-800 italic font-bold uppercase text-xs tracking-widest">Адрес:</span>
+                    с. Кабардинка, ул. Генерала Корецкого, д. 9
+                </p>
+                <p class="flex items-center gap-3">
+                    <span class="text-amber-800 italic font-bold uppercase text-xs tracking-widest">Телефон:</span>
+                    +7 (988) 351-97-58 Александра
+                <span class="text-amber-800 italic font-bold uppercase text-xs tracking-widest">Телефон:</span>
+                    +7 (988) 351-97-56 Дмитрий
+
+                </p>
+
+                <div class="pt-6">
+                    <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw=="
+                       target="_blank"
+                       class="inline-block bg-amber-800 text-white px-10 py-4 hover:bg-stone-900 transition tracking-widest uppercase text-xs font-bold shadow-lg">
+                        Забронировать
+                    </a>
                 </div>
             </div>
-            <div class="h-96 rounded-2xl overflow-hidden shadow-xl" data-aos="fade-left">
-                <iframe src="https://yandex.ru/map-widget/v1/-/CCU8Z-RpkA" width="100%" height="100%" frameborder="0"></iframe>
-            </div>
         </div>
-    </section>
+
+        <div class="h-[450px] rounded-2xl overflow-hidden shadow-2xl border-8 border-stone-50" data-aos="fade-left">
+            <div id="map" style="width: 100%; height: 100%;"></div>
+        </div>
+    </div>
+</section>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+    ymaps.ready(initMap);
+
+    function initMap() {
+        var map = new ymaps.Map('map', {
+            center: [44.655338, 37.942861],
+            zoom: 16,
+            controls: ['zoomControl']
+        });
+
+        var placemark = new ymaps.Placemark([44.655338, 37.942861], {
+            hintContent: 'Гостевой дом "Афины"'
+        }, {
+            preset: 'islands#brownDotIcon',
+            iconColor: '#8b7a6b' // Цвет под стиль вашего сайта
+        });
+
+        map.geoObjects.add(placemark);
+        map.behaviors.disable('scrollZoom'); // Чтобы карта не зумилась случайно при прокрутке страницы
+    }
+</script>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
