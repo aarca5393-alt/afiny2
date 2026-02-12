@@ -3,53 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наши Номера</title>
+    <title>Наши Номера — Гостевой дом «Афины»</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
-        body { font-family: 'Raleway', sans-serif; background: #fbfaf8; }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: #1a1a1a;
+            color: #f0f0f0;
+        }
         h1, h2 { font-family: 'Playfair Display', serif; }
+        .dark-card {
+            background-color: #2a2a2a;
+            border: 1px solid #3a3a3a;
+        }
     </style>
 </head>
 <body>
 
-    <nav class="bg-white py-6 border-b">
+    <nav class="bg-[#2a2a2a] py-6 border-b border-[#3a3a3a]">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="index.html" class="text-amber-800 font-bold uppercase tracking-widest text-xs">← На главную</a>
-            <h1 class="text-2xl italic">Категории номеров</h1>
+            <a href="index.html" class="text-amber-400 font-bold uppercase tracking-widest text-xs hover:text-amber-300 transition">← На главную</a>
+            <h1 class="text-2xl italic text-amber-400">Категории номеров</h1>
         </div>
     </nav>
 
     <section class="py-20 container mx-auto px-6 max-w-6xl">
         <div class="grid md:grid-cols-2 gap-12">
 
-            <div class="bg-white rounded-lg shadow-xl overflow-hidden group" data-aos="fade-up">
+            <!-- Двухместный -->
+            <div class="dark-card rounded-lg shadow-xl overflow-hidden group" data-aos="fade-up">
                 <div class="h-80 overflow-hidden relative">
                     <img src="images/Комфорт_2.1.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     <div class="absolute bottom-0 left-0 bg-amber-800 text-white px-4 py-1 text-sm font-bold">от 1 500 ₽</div>
                 </div>
                 <div class="p-8 text-center">
-                    <h3 class="text-2xl mb-2 italic">Двухместный номер «Комфорт»</h3>
-                    <p class="text-stone-400 mb-6 uppercase tracking-widest text-[10px]">1 комната • 2 места</p>
+                    <h3 class="text-2xl mb-2 italic text-amber-300">Двухместный номер «Комфорт»</h3>
+                    <p class="text-stone-400 mb-4 uppercase tracking-widest text-[10px]">1 комната • 2 места</p>
+                    <p class="text-stone-300 text-sm mb-6 italic">Балкон (уточнять при бронировании)</p>
                     <div class="flex flex-col gap-3">
-                        <a href="room-detail-2.html" class="border border-stone-800 py-3 uppercase text-[10px] font-bold tracking-widest hover:bg-stone-800 hover:text-white transition">Подробнее</a>
-                        <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw==" target="_blank" class="bg-stone-900 text-white py-3 uppercase text-[10px] font-bold tracking-widest hover:bg-amber-800 transition shadow-lg">Забронировать</a>
+                        <a href="room-detail-2.html" class="border border-stone-400 py-3 uppercase text-[10px] font-bold tracking-widest hover:bg-amber-700 hover:border-amber-700 hover:text-white transition text-stone-200">Подробнее</a>
+                        <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw==" target="_blank" class="bg-amber-700 text-white py-3 uppercase text-[10px] font-bold tracking-widest hover:bg-amber-800 transition shadow-lg">Забронировать</a>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white rounded-lg shadow-xl overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+            <!-- Трёхместный -->
+            <div class="dark-card rounded-lg shadow-xl overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
                 <div class="h-80 overflow-hidden relative">
                     <img src="images/Комфорт_3.1.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     <div class="absolute bottom-0 left-0 bg-amber-800 text-white px-4 py-1 text-sm font-bold">от 1 800 ₽</div>
                 </div>
                 <div class="p-8 text-center">
-                    <h3 class="text-2xl mb-2 italic">Трёхместный номер «Комфорт»</h3>
-                    <p class="text-stone-400 mb-6 uppercase tracking-widest text-[10px]">1 комната • 3 места</p>
+                    <h3 class="text-2xl mb-2 italic text-amber-300">Трёхместный номер «Комфорт»</h3>
+                    <p class="text-stone-400 mb-4 uppercase tracking-widest text-[10px]">1 комната • 3 места</p>
+                    <p class="text-stone-300 text-sm mb-6 italic">Балкон (уточнять при бронировании)</p>
                     <div class="flex flex-col gap-3">
-                        <a href="room-detail-3.html" class="border border-stone-800 py-3 uppercase text-[10px] font-bold tracking-widest hover:bg-stone-800 hover:text-white transition">Подробнее</a>
-                        <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw==" target="_blank" class="bg-stone-900 text-white py-3 uppercase text-[10px] font-bold tracking-widest hover:bg-amber-800 transition shadow-lg">Забронировать</a>
+                        <a href="room-detail-3.html" class="border border-stone-400 py-3 uppercase text-[10px] font-bold tracking-widest hover:bg-amber-700 hover:border-amber-700 hover:text-white transition text-stone-200">Подробнее</a>
+                        <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw==" target="_blank" class="bg-amber-700 text-white py-3 uppercase text-[10px] font-bold tracking-widest hover:bg-amber-800 transition shadow-lg">Забронировать</a>
                     </div>
                 </div>
             </div>

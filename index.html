@@ -3,225 +3,761 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Гостиница — Главная</title>
+    <title>Гостевой дом «Афины» — Официальный сайт</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;600&display=swap');
 
-    /* Запрещаем любой горизонтальный скролл */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: 'Raleway', sans-serif;
-        scroll-behavior: smooth;
-    }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;600&display=swap');
 
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        /* ===== БАЗОВЫЕ СТИЛИ ===== */
+html {
+    overflow-y: scroll !important;  /* Всегда видимый скроллбар */
+    overflow-x: hidden !important;
+    scroll-behavior: smooth;
+    background-color: #1a1a1a;
+}
 
-    .hero-section {
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/1.jpg') center/cover no-repeat;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;  /* <- ВАЖНО: hidden, а не auto/visible */
+    font-family: 'Raleway', sans-serif;
+    background-color: #1a1a1a;
+    color: #e5e5e5;
+    min-height: 100vh;
+}
 
-    /* Исправление мобильного меню, чтобы не вылетало за края */
-    #mobile-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        max-width: 100vw;
-        box-sizing: border-box;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-    }
+        /* ===== SWIPER — ПОЛНОСТЬЮ РАБОЧИЙ ===== */
+        .swiper {
+            overflow: hidden !important;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
 
-    .mobile-hidden { display: none !important; }
-    .mobile-visible { display: flex !important; }
+        .swiper-wrapper {
+            overflow: visible !important;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
 
-    /* Убираем лишние отступы у контейнера в навигаторе */
-    nav .container {
-        max-width: 100% !important;
-    }
-</style>
+        .swiper-slide {
+            flex-shrink: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            bottom: 10px !important;
+            left: 0 !important;
+            width: 100% !important;
+            z-index: 10;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            z-index: 10 !important;
+            color: #fbbf24 !important;
+        }
+
+        /* ===== ЯНДЕКС КАРТА ===== */
+        #map {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        ymaps,
+        .ymaps-map,
+        .ymaps-glass,
+        .ymaps-layers-pane,
+        ymaps * {
+            overflow: hidden !important;
+        }
+
+        /* ===== МОБИЛЬНОЕ МЕНЮ ===== */
+        #mobile-menu {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 72px);
+            z-index: 9999;
+            background-color: #2a2a2a;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+            display: none;
+        }
+
+        #mobile-menu.mobile-visible {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        .mobile-hidden {
+            display: none !important;
+        }
+
+        /* ===== КОНТЕЙНЕРЫ ===== */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* ===== ГЛАВНАЯ ===== */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/Main.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== ФОТОГАЛЕРЕЯ ===== */
+        .gallerySwiper {
+            width: 100%;
+            padding-left: 2rem !important;
+            padding-right: 2rem !important;
+        }
+
+        .gallerySwiper .swiper-slide {
+            height: 320px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Цвета */
+        .text-amber-400 { color: #fbbf24 !important; }
+        .text-amber-500 { color: #f59e0b !important; }
+        .text-amber-300 { color: #fcd34d !important; }
+        .bg-amber-700 { background-color: #b45309 !important; }
+        .hover\:bg-amber-700:hover { background-color: #b45309 !important; }
+        .bg-amber-800 { background-color: #92400e !important; }
+        .border-amber-400 { border-color: #fbbf24 !important; }
+        .border-amber-800 { border-color: #92400e !important; }
+        .border-amber-900 { border-color: #78350f !important; }
+        .bg-\[#2a2a2a\] { background-color: #2a2a2a !important; }
+        .bg-\[#222222\] { background-color: #222222 !important; }
+        .bg-\[#1e1e1e\] { background-color: #1e1e1e !important; }
+        .border-\[#3a3a3a\] { border-color: #3a3a3a !important; }
+        .border-\[#4a4a4a\] { border-color: #4a4a4a !important; }
+        .text-stone-200 { color: #e5e5e5 !important; }
+        .text-stone-300 { color: #d4d4d4 !important; }
+        .text-stone-100 { color: #f5f5f5 !important; }
+        /* ИСПРАВЛЕНИЕ КАРТЫ — РАБОТАЕТ 100% */
+#map,
+#map *,
+.ymaps-map,
+.ymaps-glass,
+.ymaps-layers-pane,
+.ymaps-copyrights-pane {
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+}
+
+.ymaps-map {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+#map {
+    overflow: visible !important;
+}
+    </style>
 </head>
-<body class="bg-stone-50 text-stone-900">
+<body>
 
-<nav class="fixed top-0 left-0 w-full z-[9999] bg-white border-b border-stone-100 shadow-sm">
+<nav class="fixed top-0 left-0 w-full z-[9999] bg-[#2a2a2a] border-b border-[#3a3a3a] shadow-lg">
     <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center relative">
-        <a href="index.html" class="text-2xl font-bold tracking-widest text-amber-800 uppercase">Hotel</a>
+        <a href="index.html" class="text-2xl font-bold tracking-widest text-amber-400 uppercase">Афины</a>
 
-        <button id="menu-btn" class="md:hidden text-stone-900 p-2 focus:outline-none">
+        <button id="menu-btn" class="md:hidden text-stone-100 p-2 focus:outline-none">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
         </button>
 
-        <div class="hidden md:flex space-x-8 uppercase text-[10px] tracking-[0.2em] font-bold text-stone-600">
-            <a href="index.html" class="hover:text-amber-800 transition">Главная</a>
-            <a href="rooms.html" class="hover:text-amber-800 transition">Номера</a>
-            <a href="#pool" class="hover:text-amber-800 transition">Бассейн</a>
-            <a href="#contacts" class="hover:text-amber-800 transition">Контакты</a>
+        <div class="hidden md:flex space-x-8 uppercase text-[10px] tracking-[0.2em] font-bold text-stone-300">
+            <a href="index.html" class="hover:text-amber-400 transition">Главная</a>
+            <a href="rooms.html" class="hover:text-amber-400 transition">Номера</a>
+            <a href="#territory" class="hover:text-amber-400 transition">Территория</a>
+            <a href="#booking" class="hover:text-amber-400 transition">Условия</a>
+            <a href="#contacts" class="hover:text-amber-400 transition">Контакты</a>
         </div>
 
-        <div id="mobile-menu" class="mobile-hidden md:hidden flex-col bg-white px-6 py-6 space-y-4 uppercase text-[10px] tracking-widest font-bold text-stone-600">
-            <a href="index.html" class="block hover:text-amber-800 transition">Главная</a>
-            <a href="rooms.html" class="block hover:text-amber-800 transition">Номера</a>
-            <a href="#pool" class="block hover:text-amber-800 transition">Бассейн</a>
-            <a href="#contacts" class="block hover:text-amber-800 transition">Контакты</a>
+        <div id="mobile-menu" class="mobile-hidden md:hidden px-6 py-6 space-y-4 uppercase text-[10px] tracking-widest font-bold text-stone-300">
+            <a href="index.html" class="block hover:text-amber-400 transition">Главная</a>
+            <a href="rooms.html" class="block hover:text-amber-400 transition">Номера</a>
+            <a href="#territory" class="block hover:text-amber-400 transition">Территория</a>
+            <a href="#booking" class="block hover:text-amber-400 transition">Условия</a>
+            <a href="#contacts" class="block hover:text-amber-400 transition">Контакты</a>
         </div>
     </div>
 </nav>
 
 <header class="hero-section h-screen flex items-center justify-center text-center text-white">
-    <div data-aos="fade-up" data-aos-duration="1500" class="px-4">
-        <h1 class="text-4xl md:text-8xl mb-6 italic">Добро пожаловать в Афины</h1>
-        <p class="text-lg md:text-xl font-light mb-10 tracking-widest">УЮТ И КОМФОРТ В КАЖДОЙ ДЕТАЛИ</p>
-        <a href="rooms.html" class="border-2 border-white px-10 py-4 hover:bg-white hover:text-black transition duration-300 uppercase text-xs tracking-widest">Выбрать номер</a>
+    <div data-aos="fade-up" data-aos-duration="1500" class="px-4 max-w-4xl w-full">
+        <h1 class="text-4xl md:text-7xl mb-4 italic">Гостевой дом «Афины»</h1>
+        <p class="text-xl md:text-2xl font-light mb-3 tracking-wide">с. Кабардинка, ул. Генерала Корецкого, д. 9</p>
+        <p class="text-lg md:text-xl mb-6 text-amber-300">Комфортный отдых на берегу моря</p>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-10">
+            <span class="text-white text-xl">Мария:</span>
+            <a href="tel:+79897580773" class="text-2xl md:text-3xl font-bold text-white hover:text-amber-300 transition border-b-2 border-amber-400 pb-1">+7 (989) 758-07-73</a>
+        </div>
+
+        <a href="rooms.html" class="inline-block border-2 border-white px-10 py-4 hover:bg-amber-700 hover:border-amber-700 hover:text-white transition duration-300 uppercase text-xs tracking-widest bg-black bg-opacity-30">Выбрать номер</a>
     </div>
 </header>
 
-<section class="py-24 bg-stone-100">
-    <div class="container mx-auto px-6 text-center mb-16">
-        <h2 class="text-4xl italic mb-4">Фотогалерея</h2>
-        <div class="h-1 w-20 bg-amber-800 mx-auto"></div>
-    </div>
-    <div class="swiper gallerySwiper px-4 md:px-10">
-        <div class="swiper-wrapper">
-            <script>
-                for(let i=1; i<=12; i++){
-                    let ext = (i === 5) ? 'png' : 'jpg';
-                    document.write(`<div class="swiper-slide"><div class="h-80 overflow-hidden rounded-lg shadow-md"><img src="images/${i}.${ext}" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="фото"></div></div>`);
-                }
-            </script>
-        </div>
-        <div class="swiper-button-next text-amber-800"></div>
-        <div class="swiper-button-prev text-amber-800"></div>
-    </div>
-</section>
-
-<section id="pool" class="py-12 md:py-24 bg-white overflow-hidden">
+<!-- ТЕРРИТОРИЯ -->
+<section id="territory" class="py-20 bg-[#222222]">
     <div class="container mx-auto px-4 md:px-6">
-        <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
-            <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
-                <h2 class="text-3xl md:text-5xl mb-6 italic text-amber-900 text-center lg:text-left">Наш Бассейн</h2>
-                <p class="text-stone-600 leading-relaxed mb-8 text-base md:text-lg text-justify lg:text-left">
-                    На территории нашей гостиницы расположен просторный и чистый бассейн. Идеальное место, чтобы освежиться в жаркий день или расслабиться после прогулок. Мы внимательно следим за качеством воды, чтобы ваш отдых был безопасным и приятным.
-                </p>
-            </div>
-            <div class="w-full lg:w-1/2 order-1 lg:order-2" data-aos="fade-left">
-                <div class="swiper poolSwiper h-[300px] sm:h-[400px] md:h-[500px] rounded-2xl shadow-2xl">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="images/2.jpg" class="w-full h-full object-cover" alt="бассейн"></div>
-                        <div class="swiper-slide"><img src="images/3.jpg" class="w-full h-full object-cover" alt="бассейн"></div>
-                        <div class="swiper-slide"><img src="images/4.jpg" class="w-full h-full object-cover" alt="бассейн"></div>
-                        <div class="swiper-slide"><img src="images/5.png" class="w-full h-full object-cover" alt="бассейн"></div>
-                        <div class="swiper-slide"><img src="images/6.jpg" class="w-full h-full object-cover" alt="бассейн"></div>
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl italic mb-4 text-amber-400">Наша территория</h2>
+            <div class="h-1 w-24 bg-amber-700 mx-auto"></div>
+            <p class="text-stone-300 mt-6 text-lg max-w-3xl mx-auto">
+                Всё для идеального отдыха в одном месте — каждый уголок создан с заботой о вас
+            </p>
+        </div>
+
+        <div class="space-y-20 max-w-6xl mx-auto">
+            <!-- 1. Бассейн -->
+            <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+                <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
+                    <h3 class="text-3xl md:text-4xl italic mb-6 text-amber-400">Бассейн</h3>
+                    <div class="bg-[#2a2a2a] p-6 rounded-2xl border border-[#4a4a4a]">
+                        <p class="text-stone-200 leading-relaxed text-lg">
+                            Просторный открытый бассейн с подогревом. Идеальное место, чтобы освежиться в жаркий день
+                            или расслабиться после прогулок. Вода проходит регулярную очистку, а вокруг бассейна
+                            расположены удобные шезлонги и зонты.
+                        </p>
+                        <p class="text-amber-400 mt-4 font-semibold">✓ Глубина: 0.5–2 м • Подогрев • Шезлонги</p>
                     </div>
-                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="w-full lg:w-1/2 order-1 lg:order-2 "data-aos="fade-left">
+                    <div class="swiper poolSwiper rounded-2xl shadow-2xl border-4 border-[#3a3a3a] h-[300px] md:h-[350px]">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/2.jpg" class="w-full h-full object-cover" alt="Бассейн 1"></div>
+                            <div class="swiper-slide"><img src="images/3.jpg" class="w-full h-full object-cover" alt="Бассейн 2"></div>
+                            <div class="swiper-slide"><img src="images/4.jpg" class="w-full h-full object-cover" alt="Бассейн 3"></div>
+                            <div class="swiper-slide"><img src="images/5.png" class="w-full h-full object-cover" alt="Бассейн 4"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Кухня -->
+            <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+                <div class="w-full lg:w-1/2"data-aos="fade-right">
+                    <div class="swiper kitchenSwiper rounded-2xl shadow-2xl border-4 border-[#3a3a3a] h-[300px] md:h-[350px]">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/3.jpg" class="w-full h-full object-cover" alt="Кухня 1"></div>
+                            <div class="swiper-slide"><img src="images/4.jpg" class="w-full h-full object-cover" alt="Кухня 2"></div>
+                            <div class="swiper-slide"><img src="images/5.png" class="w-full h-full object-cover" alt="Кухня 3"></div>
+                            <div class="swiper-slide"><img src="images/6.jpg" class="w-full h-full object-cover" alt="Кухня 4"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h3 class="text-3xl md:text-4xl italic mb-6 text-amber-400">Кухня</h3>
+                    <div class="bg-[#2a2a2a] p-6 rounded-2xl border border-[#4a4a4a]">
+                        <p class="text-stone-200 leading-relaxed text-lg">
+                            Полностью оборудованная кухня для самостоятельного приготовления пищи.
+                            Есть всё необходимое: плита, духовка, микроволновая печь, холодильник,
+                            посуда и кухонные принадлежности. Чистота и порядок — ежедневно.
+                        </p>
+                        <p class="text-amber-400 mt-4 font-semibold">✓ Плита • Духовка • Микроволновка • Посуда</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Мангальная зона -->
+            <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+                <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
+                    <h3 class="text-3xl md:text-4xl italic mb-6 text-amber-400">Мангальная зона</h3>
+                    <div class="bg-[#2a2a2a] p-6 rounded-2xl border border-[#4a4a4a]">
+                        <p class="text-stone-200 leading-relaxed text-lg">
+                            Уютная беседка с мангалом и всем необходимым для приготовления шашлыка.
+                            Предоставляем шампуры, решётки, угли и розжиг. Прекрасное место для
+                            семейного ужина или дружеских посиделок на свежем воздухе.
+                        </p>
+                        <p class="text-amber-400 mt-4 font-semibold">✓ Мангал • Шампуры • Решётки</p>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 order-1 lg:order-2" data-aos="fade-left">
+                    <div class="swiper bbqSwiper rounded-2xl shadow-2xl border-4 border-[#3a3a3a] h-[300px] md:h-[350px]">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/4.jpg" class="w-full h-full object-cover" alt="Мангал 1"></div>
+                            <div class="swiper-slide"><img src="images/5.png" class="w-full h-full object-cover" alt="Мангал 2"></div>
+                            <div class="swiper-slide"><img src="images/6.jpg" class="w-full h-full object-cover" alt="Мангал 3"></div>
+                            <div class="swiper-slide"><img src="images/2.jpg" class="w-full h-full object-cover" alt="Мангал 4"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Детская площадка -->
+            <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+                <div class="w-full lg:w-1/2" data-aos="fade-right">
+                    <div class="swiper playgroundSwiper rounded-2xl shadow-2xl border-4 border-[#3a3a3a] h-[300px] md:h-[350px]">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/5.png" class="w-full h-full object-cover" alt="Детская 1"></div>
+                            <div class="swiper-slide"><img src="images/6.jpg" class="w-full h-full object-cover" alt="Детская 2"></div>
+                            <div class="swiper-slide"><img src="images/2.jpg" class="w-full h-full object-cover" alt="Детская 3"></div>
+                            <div class="swiper-slide"><img src="images/3.jpg" class="w-full h-full object-cover" alt="Детская 4"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h3 class="text-3xl md:text-4xl italic mb-6 text-amber-400">Детская площадка</h3>
+                    <div class="bg-[#2a2a2a] p-6 rounded-2xl border border-[#4a4a4a]">
+                        <p class="text-stone-200 leading-relaxed text-lg">
+                            Безопасная и яркая детская площадка с горкой.
+                            Здесь ваши дети смогут весело провести время, пока вы
+                            отдыхаете неподалёку.
+                        </p>
+                        <p class="text-amber-400 mt-4 font-semibold">✓ Горка • Безопасное покрытие</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Бар -->
+            <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
+                <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
+                    <h3 class="text-3xl md:text-4xl italic mb-6 text-amber-400">Бар</h3>
+                    <div class="bg-[#2a2a2a] p-6 rounded-2xl border border-[#4a4a4a]">
+                        <p class="text-stone-200 leading-relaxed text-lg">
+                            Небольшой, но уютный бар на территории. Предлагаем прохладительные напитки,
+                            свежевыжатые соки, мороженое, лёгкие закуски. Идеально, чтобы перекусить.
+                        </p>
+                        <p class="text-amber-400 mt-4 font-semibold">✓ Напитки • Соки • Мороженое • Закуски • Беседка</p>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2 order-1 lg:order-2" data-aos="fade-left">
+                    <div class="swiper barSwiper rounded-2xl shadow-2xl border-4 border-[#3a3a3a] h-[300px] md:h-[350px]">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/6.jpg" class="w-full h-full object-cover" alt="Бар 1"></div>
+                            <div class="swiper-slide"><img src="images/2.jpg" class="w-full h-full object-cover" alt="Бар 2"></div>
+                            <div class="swiper-slide"><img src="images/3.jpg" class="w-full h-full object-cover" alt="Бар 3"></div>
+                            <div class="swiper-slide"><img src="images/4.jpg" class="w-full h-full object-cover" alt="Бар 4"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Зона отдыха -->
+            <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center" data-aos="fade-right">
+                <div class="w-full lg:w-1/2">
+                    <div class="swiper relaxSwiper rounded-2xl shadow-2xl border-4 border-[#3a3a3a] h-[300px] md:h-[350px]">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/7.jpg" class="w-full h-full object-cover" alt="Зона отдыха 1"></div>
+                            <div class="swiper-slide"><img src="images/2.jpg" class="w-full h-full object-cover" alt="Зона отдыха 2"></div>
+                            <div class="swiper-slide"><img src="images/3.jpg" class="w-full h-full object-cover" alt="Зона отдыха 3"></div>
+                            <div class="swiper-slide"><img src="images/4.jpg" class="w-full h-full object-cover" alt="Зона отдыха 4"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h3 class="text-3xl md:text-4xl italic mb-6 text-amber-400">Зона отдыха</h3>
+                    <div class="bg-[#2a2a2a] p-6 rounded-2xl border border-[#4a4a4a]">
+                        <p class="text-stone-200 leading-relaxed text-lg">
+                            Тихая, тенистая зона с удобными стульями и большим столом.
+                            Расположена вдали от детской площадки и мангальной зоны.
+                        </p>
+                        <p class="text-amber-400 mt-4 font-semibold">✓ Стулья • Столы • Тень</p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="mt-20 text-center bg-[#2a2a2a] p-8 rounded-2xl max-w-4xl mx-auto border border-[#4a4a4a]">
+            <p class="text-xl text-stone-200 italic">
+                Вся территория огорожена, ухожена и находится под видеонаблюдением.
+                У нас есть всё, чтобы ваш отдых был беззаботным!
+            </p>
+        </div>
     </div>
 </section>
 
-<section id="contacts" class="py-24 bg-white">
+<!-- ФОТОГАЛЕРЕЯ -->
+<section class="py-20 bg-[#1e1e1e] overflow-hidden">
+    <div class="container mx-auto px-6 text-center mb-12">
+        <h2 class="text-4xl italic mb-4 text-amber-400">Фотогалерея</h2>
+        <div class="h-1 w-20 bg-amber-700 mx-auto"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4">
+        <div class="swiper gallerySwiper !overflow-visible">
+            <div class="swiper-wrapper items-center">
+                <!-- Фото 1-12 -->
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/1.jpg" alt="Фото 1"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/2.jpg" alt="Фото 2"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/3.jpg" alt="Фото 3"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/4.jpg" alt="Фото 4"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/5.png" alt="Фото 5"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/6.jpg" alt="Фото 6"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/7.jpg" alt="Фото 7"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/8.jpg" alt="Фото 8"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/9.jpg" alt="Фото 9"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/10.jpg" alt="Фото 10"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/11.jpg" alt="Фото 11"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+                <div class="swiper-slide !h-[500px] md:!h-[600px] transition-all duration-500">
+                    <div class="relative h-full w-full flex items-center justify-center">
+                        <img src="images/12.jpg" alt="Фото 12"
+                             class="gallery-image w-auto h-full max-w-full object-contain shadow-2xl rounded-lg transition-all duration-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Навигация -->
+            <div class="swiper-button-next !text-amber-400 !after:text-3xl"></div>
+            <div class="swiper-button-prev !text-amber-400 !after:text-3xl"></div>
+
+            <!-- Пагинация -->
+            <div class="swiper-pagination !relative !mt-8"></div>
+        </div>
+    </div>
+</section>
+
+<!-- УСЛОВИЯ БРОНИРОВАНИЯ -->
+<section id="booking" class="py-20 bg-[#222222]">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl italic mb-4 text-amber-400">Условия бронирования</h2>
+            <div class="h-1 w-20 bg-amber-700 mx-auto"></div>
+            <p class="text-stone-300 mt-6">Внимательно ознакомьтесь перед бронированием</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+            <div class="bg-[#2a2a2a] p-8 rounded-2xl border border-[#4a4a4a] shadow-xl" data-aos="fade-up">
+                <h3 class="text-2xl italic mb-6 text-amber-400 border-b border-amber-800 pb-2">Оплата и предоплата</h3>
+                <ul class="space-y-4 text-stone-200">
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> При бронировании — предоплата <span class="font-bold text-amber-400">10%</span> (не менее 1 суток).</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Полная оплата — наличными при заселении.</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Отмена за 30+ суток — предоплата возвращается полностью.</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Отмена менее 30 суток — предоплата не возвращается.</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Комиссия банка при возврате — за счёт отдыхающего.</li>
+                </ul>
+
+                <h3 class="text-2xl italic mb-4 mt-10 text-amber-400 border-b border-amber-800 pb-2">Сроки проживания</h3>
+                <ul class="space-y-4 text-stone-200">
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Минимальный срок — <span class="font-bold text-amber-400">5 суток</span> (исключение: бронь в день заезда).</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> При преждевременном выезде удерживается сумма за 5 суток.</li>
+                </ul>
+            </div>
+
+            <div class="bg-[#2a2a2a] p-8 rounded-2xl border border-[#4a4a4a] shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="text-2xl italic mb-6 text-amber-400 border-b border-amber-800 pb-2">Заезд и выезд</h3>
+                <ul class="space-y-4 text-stone-200">
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> <span class="font-bold">Заезд:</span> с 12:00 (ранний заезд — при наличии).</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> <span class="font-bold">Выезд:</span> до 10:00 (поздний выезд — при возможности).</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> После 12:00 — заселение в любой удобное время.</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> В день выезда номер освободить до 10:00.</li>
+                </ul>
+
+                <div class="mt-8 p-5 bg-[#1e1e1e] rounded-xl border border-amber-900">
+                    <p class="text-amber-300 italic font-medium">Примите к сведению:</p>
+                    <p class="text-stone-300 mt-2">Оплачивая бронирование номера, вы соглашаетесь с условиями бронирования и правилами проживания.</p>
+                </div>
+
+                <p class="mt-8 text-stone-400 text-sm border-t border-[#3a3a3a] pt-6 text-center">
+                    Ждём вас! С наилучшими пожеланиями, администрация гостевого дома «Афины»
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center bg-[#2a2a2a] p-6 rounded-xl max-w-4xl mx-auto border border-[#4a4a4a]">
+            <h4 class="text-xl italic text-amber-400 mb-3">Общие правила проживания</h4>
+            <p class="text-stone-300">Соблюдайте тишину после 23:00, бережно относитесь к имуществу. Запрещено курение в номерах (места на улице). С животными — по предварительному согласованию.</p>
+        </div>
+    </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section id="contacts" class="py-20 bg-[#1e1e1e]">
     <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
         <div data-aos="fade-up">
-            <h2 class="text-4xl italic mb-8">Контакты</h2>
-            <div class="space-y-6 text-lg">
+            <h2 class="text-4xl italic mb-8 text-amber-400">Контакты</h2>
+            <div class="space-y-6 text-lg text-stone-200">
                 <div>
-                    <span class="text-amber-800 italic font-bold uppercase text-xs tracking-widest block mb-1">Адрес:</span>
-                    <p>с. Кабардинка, ул. Генерала Корецкого, д. 9</p>
+                    <span class="text-amber-400 italic font-bold uppercase text-xs tracking-widest block mb-1">Адрес:</span>
+                    <p class="text-stone-200">с. Кабардинка, ул. Генерала Корецкого, д. 9</p>
                 </div>
                 <div class="flex flex-col gap-4">
                     <div>
-                        <span class="text-amber-800 italic font-bold uppercase text-xs tracking-widest block mb-1">Александра:</span>
-                        <a href="tel:+79883519758" class="hover:text-amber-800 transition">+7 (988) 351-97-58</a>
-                    </div>
-                    <div>
-                        <span class="text-amber-800 italic font-bold uppercase text-xs tracking-widest block mb-1">Дмитрий:</span>
-                        <a href="tel:+79883519756" class="hover:text-amber-800 transition">+7 (988) 351-97-56</a>
+                        <span class="text-amber-400 italic font-bold uppercase text-xs tracking-widest block mb-1">Мария (бронирование):</span>
+                        <a href="tel:+79897580773" class="text-2xl font-bold hover:text-amber-400 transition text-stone-100">+7 (989) 758-07-73</a>
                     </div>
                 </div>
                 <div class="pt-6">
                     <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw=="
                        target="_blank"
-                       class="inline-block bg-amber-800 text-white px-10 py-4 hover:bg-stone-900 transition tracking-widest uppercase text-xs font-bold shadow-lg text-center">
-                        Забронировать
+                       class="inline-block bg-amber-700 text-white px-10 py-4 hover:bg-amber-800 transition tracking-widest uppercase text-xs font-bold shadow-lg text-center rounded-md">
+                        Забронировать онлайн
                     </a>
                 </div>
             </div>
         </div>
-        <div class="h-[450px] rounded-2xl overflow-hidden shadow-2xl border-8 border-stone-50" data-aos="fade-left">
-            <div id="map" style="width: 100%; height: 100%;"></div>
+        <div class="h-[450px] rounded-2xl overflow-hidden shadow-2xl border-4 border-[#3a3a3a]" data-aos="fade-left">
+            <div id="map"></div>
         </div>
     </div>
 </section>
 
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-    ymaps.ready(initMap);
-    function initMap() {
-        var map = new ymaps.Map('map', { center: [44.655338, 37.942861], zoom: 16, controls: ['zoomControl'] });
-        var placemark = new ymaps.Placemark([44.655338, 37.942861], { hintContent: 'Гостевой дом "Афины"' }, { preset: 'islands#brownDotIcon', iconColor: '#8b7a6b' });
-        map.geoObjects.add(placemark);
-        map.behaviors.disable('scrollZoom');
+    // КАРТА
+    ymaps.ready(function() {
+        try {
+            var map = new ymaps.Map('map', {
+                center: [44.655338, 37.942861],
+                zoom: 16,
+                controls: ['zoomControl']
+            });
+
+            var placemark = new ymaps.Placemark(
+                [44.655338, 37.942861],
+                { hintContent: 'Гостевой дом "Афины"' },
+                { preset: 'islands#brownDotIcon', iconColor: '#b59d7c' }
+            );
+
+            map.geoObjects.add(placemark);
+        } catch(e) {
+            console.log('Ошибка карты:', e);
+        }
+    });
+
+    // AOS
+AOS.init({
+    once: false,
+    mirror: true,
+    duration: 1000,
+    offset: 50,
+    easing: 'ease-in-out',
+    anchorPlacement: 'top-bottom',
+    disable: false,        // анимация на всех устройствах
+    startEvent: 'DOMContentLoaded',
+    initClassName: 'aos-init',
+    animatedClassName: 'aos-animate',
+    useClassNames: false,
+    throttleDelay: 99,
+    debounceDelay: 50
+});
+
+    // SWIPER - ИНИЦИАЛИЗАЦИЯ
+    setTimeout(() => {
+        // Слайдеры территории
+        new Swiper(".poolSwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            autoplay: { delay: 3000 }
+        });
+        new Swiper(".kitchenSwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            autoplay: { delay: 3000 }
+        });
+        new Swiper(".bbqSwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            autoplay: { delay: 3000 }
+        });
+        new Swiper(".playgroundSwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            autoplay: { delay: 3000 }
+        });
+        new Swiper(".barSwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            autoplay: { delay: 3000 }
+        });
+        new Swiper(".relaxSwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            autoplay: { delay: 3000 }
+        });
+
+new Swiper(".gallerySwiper", {
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 0,
+    speed: 500,
+    grabCursor: true,
+
+    // Красивая анимация масштаба
+    on: {
+        init: function() {
+            this.slides.forEach(slide => {
+                const img = slide.querySelector('.gallery-image');
+                if (img) {
+                    if (slide.classList.contains('swiper-slide-active')) {
+                        img.style.transform = 'scale(1)';
+                        img.style.opacity = '1';
+                    } else {
+                        img.style.transform = 'scale(0.85)';
+                        img.style.opacity = '0.7';
+                    }
+                }
+            });
+        },
+        slideChangeTransitionStart: function() {
+            this.slides.forEach(slide => {
+                const img = slide.querySelector('.gallery-image');
+                if (img) {
+                    if (slide.classList.contains('swiper-slide-active')) {
+                        img.style.transform = 'scale(1)';
+                        img.style.opacity = '1';
+                    } else {
+                        img.style.transform = 'scale(0.85)';
+                        img.style.opacity = '0.7';
+                    }
+                }
+            });
+        }
+    },
+
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+    },
+
+    // АВТОПРОКРУТКА (опционально, можно убрать)
+    autoplay: {
+        delay: 4000,
+        disableOnInteraction: true
     }
+});
+    }, 100);
 
-    AOS.init({ once: true, offset: 50 });
-
-    new Swiper(".poolSwiper", {
-        loop: true,
-        pagination: { el: ".swiper-pagination", clickable: true },
-        autoplay: { delay: 3000 }
-    });
-
-    new Swiper(".gallerySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-        breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 4 } }
-    });
-
+    // МОБИЛЬНОЕ МЕНЮ
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
 
     if (menuBtn && mobileMenu && menuIcon) {
         menuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
+
             if (mobileMenu.classList.contains('mobile-hidden')) {
                 mobileMenu.classList.remove('mobile-hidden');
                 mobileMenu.classList.add('mobile-visible');
                 menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
             } else {
-                closeMenu();
+                mobileMenu.classList.remove('mobile-visible');
+                mobileMenu.classList.add('mobile-hidden');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
             }
         });
-
-        function closeMenu() {
-            mobileMenu.classList.remove('mobile-visible');
-            mobileMenu.classList.add('mobile-hidden');
-            menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-        }
 
         mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                closeMenu();
-            }
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('mobile-visible');
+                mobileMenu.classList.add('mobile-hidden');
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
         });
     }
 </script>
+
 </body>
 </html>
