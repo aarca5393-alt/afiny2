@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grand Hotel | Главная</title>
+    <title>Гостиница — Отдых и уют</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -11,97 +11,104 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
         body { font-family: 'Raleway', sans-serif; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .hero-section { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1920&q=80') center/cover; }
+        .hero-bg { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/1.jpg') center/cover no-repeat; }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-900">
+<body class="bg-stone-50 text-stone-900 overflow-x-hidden">
 
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-sm border-b border-stone-200">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold tracking-tighter text-amber-800">GRAND HOTEL</a>
-            <div class="hidden md:flex space-x-8 uppercase text-xs tracking-widest font-semibold">
-                <a href="index.html" class="hover:text-amber-600 transition">Главная</a>
-                <a href="rooms.html" class="hover:text-amber-600 transition">Номера</a>
-                <a href="#contacts" class="hover:text-amber-600 transition">Контакты</a>
+            <a href="index.html" class="text-2xl font-bold tracking-widest text-amber-800 uppercase">Hotel</a>
+            <div class="hidden md:flex space-x-8 uppercase text-[10px] tracking-[0.2em] font-bold text-stone-600">
+                <a href="index.html" class="hover:text-amber-800 transition">Главная</a>
+                <a href="rooms.html" class="hover:text-amber-800 transition">Номера</a>
+                <a href="#pool" class="hover:text-amber-800 transition">Бассейн</a>
+                <a href="#contacts" class="hover:text-amber-800 transition">Контакты</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero-section h-screen flex items-center justify-center text-center text-white">
-        <div data-aos="fade-up" data-aos-duration="1200">
-            <p class="uppercase tracking-[0.3em] mb-4 text-sm">Ваш идеальный отдых</p>
-            <h1 class="text-5xl md:text-8xl mb-8">Искусство гостеприимства</h1>
-            <a href="rooms.html" class="inline-block border-2 border-white px-10 py-4 hover:bg-white hover:text-black transition-all duration-300">ВЫБРАТЬ НОМЕР</a>
-        </div>
-    </header>
-
-    <section class="py-24 container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-        <div data-aos="fade-right">
-            <h2 class="text-4xl mb-6">Оазис спокойствия</h2>
-            <p class="text-stone-600 leading-relaxed mb-6">Мы создали место, где время замедляется. Наша гостиница сочетает в себе классические традиции и современный комфорт. Каждая деталь интерьера продумана для вашего вдохновения.</p>
-            <div class="flex space-x-6 text-amber-800">
-                <div><span class="block text-2xl font-bold">50+</span> <span class="text-xs uppercase">Номеров</span></div>
-                <div><span class="block text-2xl font-bold">24/7</span> <span class="text-xs uppercase">Сервис</span></div>
-                <div><span class="block text-2xl font-bold">★ ★ ★ ★</span> <span class="text-xs uppercase">Рейтинг</span></div>
-            </div>
-        </div>
-        <div class="relative" data-aos="fade-left">
-            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80" class="rounded shadow-2xl" alt="Интерьер">
+    <section class="hero-bg h-screen flex items-center justify-center text-center text-white">
+        <div data-aos="fade-up" data-aos-duration="1500">
+            <h1 class="text-5xl md:text-8xl mb-6">Ваш отдых начинается здесь</h1>
+            <p class="text-xl md:text-2xl font-light mb-10">Комфорт, забота и уют в каждой детали</p>
+            <a href="rooms.html" class="border-2 border-white px-12 py-4 hover:bg-white hover:text-black transition duration-300 tracking-widest uppercase text-sm">Выбрать номер</a>
         </div>
     </section>
 
-<section class="py-20 bg-stone-100 overflow-hidden">
-    <div class="container mx-auto px-6 mb-12 text-center">
-        <h2 class="text-4xl italic">Интерьеры нашего отеля</h2>
-    </div>
-
-    <div class="swiper mySwiper w-full max-w-6xl mx-auto px-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" class="w-full h-[450px] object-cover rounded shadow-lg"></div>
-            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" class="w-full h-[450px] object-cover rounded shadow-lg"></div>
-            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=800&q=80" class="w-full h-[450px] object-cover rounded shadow-lg"></div>
-            <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=800&q=80" class="w-full h-[450px] object-cover rounded shadow-lg"></div>
-        </div>
-        <div class="swiper-button-next text-amber-800"></div>
-        <div class="swiper-button-prev text-amber-800"></div>
-    </div>
-</section>
-
-<script>
-    AOS.init({ duration: 1000, once: true });
-    new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        centeredSlides: true,
-        loop: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 }
-        }
-    });
-</script>
-
-    <section id="contacts" class="py-24 container mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-12">
-            <div data-aos="fade-up">
-                <h2 class="text-4xl mb-8">Контакты</h2>
-                <div class="space-y-6">
-                    <div>
-                        <p class="text-xs uppercase text-stone-400 mb-1 tracking-widest">Адрес</p>
-                        <p class="text-xl italic">г. Москва, ул. Центральная, 12</p>
+    <section id="pool" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl md:text-5xl mb-8 italic text-amber-900">Наш Бассейн</h2>
+                    <p class="text-stone-600 leading-relaxed mb-8 text-lg">
+                        На территории отеля расположен освежающий бассейн. Это идеальное место для утреннего бодрящего заплыва или ленивого отдыха под солнцем. Вода всегда поддерживается в идеальной чистоте для вашего комфорта.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="images/10.jpg" class="rounded-lg shadow-lg h-48 w-full object-cover" data-aos="zoom-in" data-aos-delay="200">
+                        <img src="images/11.jpg" class="rounded-lg shadow-lg h-48 w-full object-cover" data-aos="zoom-in" data-aos-delay="400">
                     </div>
-                    <div>
-                        <p class="text-xs uppercase text-stone-400 mb-1 tracking-widest">Бронирование</p>
-                        <p class="text-xl italic">+7 (495) 000-00-00</p>
+                </div>
+                <div class="relative" data-aos="fade-left">
+                    <div class="swiper poolSwiper h-[500px] rounded-2xl shadow-2xl">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/2.jpg" class="w-full h-full object-cover"></div>
+                            <div class="swiper-slide"><img src="images/3.jpg" class="w-full h-full object-cover"></div>
+                            <div class="swiper-slide"><img src="images/4.jpg" class="w-full h-full object-cover"></div>
+                            <div class="swiper-slide"><img src="images/5.png" class="w-full h-full object-cover"></div>
+                            <div class="swiper-slide"><img src="images/6.jpg" class="w-full h-full object-cover"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
-            <div class="h-[400px] rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-xl border border-stone-200">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.297491764619!2d37.617635!3d55.755826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDQ1JzIwLjkiTiAzN8KwMzcnMDMuNSJF!5e0!3m2!1sru!2sru!4v1625560000000!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section class="py-24 bg-stone-100 overflow-hidden">
+        <div class="container mx-auto px-6 text-center mb-16">
+            <h2 class="text-4xl font-serif mb-4 italic">Галерея отеля</h2>
+            <div class="h-1 w-20 bg-amber-800 mx-auto"></div>
+        </div>
+        <div class="swiper gallerySwiper px-10">
+            <div class="swiper-wrapper">
+                <script>
+                    for(let i=1; i<=12; i++){
+                        let ext = (i === 5) ? 'png' : 'jpg';
+                        document.write(`
+                        <div class="swiper-slide">
+                            <div class="h-80 overflow-hidden rounded-lg shadow-md">
+                                <img src="images/${i}.${ext}" class="w-full h-full object-cover hover:scale-110 transition duration-700">
+                            </div>
+                        </div>`);
+                    }
+                </script>
+            </div>
+            <div class="swiper-button-next text-amber-800"></div>
+            <div class="swiper-button-prev text-amber-800"></div>
+        </div>
+    </section>
+
+    <section id="contacts" class="py-24 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16">
+            <div data-aos="fade-up">
+                <h2 class="text-4xl font-serif mb-8 italic">Как нас найти</h2>
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-amber-800 font-bold uppercase text-xs tracking-widest mb-2">Адрес</p>
+                        <p class="text-xl">Россия, Ваш город, ул. Примерная, 1</p>
+                    </div>
+                    <div>
+                        <p class="text-amber-800 font-bold uppercase text-xs tracking-widest mb-2">Телефон</p>
+                        <p class="text-xl font-semibold">+7 (XXX) XXX-XX-XX</p>
+                    </div>
+                    <div class="pt-6">
+                        <a href="https://link.2gis.ru/4.3/25C27D96/..." target="_blank" class="inline-block bg-amber-800 text-white px-10 py-4 shadow-lg hover:bg-stone-900 transition tracking-widest uppercase text-xs font-bold">Забронировать сейчас</a>
+                    </div>
+                </div>
+            </div>
+            <div class="h-[450px] rounded-2xl overflow-hidden shadow-2xl border-8 border-stone-50" data-aos="fade-left">
+                <iframe src="https://yandex.ru/map-widget/v1/-/CCU8Z-RpkA" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         </div>
     </section>
@@ -109,16 +116,16 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
-        new Swiper(".mySwiper", {
-            slidesPerView: 1.2,
-            spaceBetween: 20,
-            centeredSlides: true,
+        AOS.init({ once: true });
+        new Swiper(".poolSwiper", {
             loop: true,
-            breakpoints: {
-                640: { slidesPerView: 2.2 },
-                1024: { slidesPerView: 3.2 }
-            }
+            autoplay: { delay: 3000 },
+            pagination: { el: ".swiper-pagination", clickable: true }
+        });
+        new Swiper(".gallerySwiper", {
+            slidesPerView: 1, spaceBetween: 25, loop: true,
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 }, 1280: { slidesPerView: 4 } }
         });
     </script>
 </body>

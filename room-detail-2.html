@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Двухместный номер «Комфорт»</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;600&display=swap');
+        h1, h2 { font-family: 'Playfair Display', serif; }
+        body { font-family: 'Raleway', sans-serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+
+    <div class="container mx-auto px-6 py-12 max-w-6xl">
+        <a href="rooms.html" class="mb-8 inline-block text-stone-400 hover:text-amber-800 font-bold transition">← К списку номеров</a>
+
+        <div class="bg-white flex flex-col lg:flex-row shadow-2xl rounded-2xl overflow-hidden">
+            <div class="lg:w-1/2 relative h-[400px] lg:h-auto">
+                <div class="swiper roomSwiper h-full">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/Комфорт_2.1.jpg" class="w-full h-full object-cover"></div>
+                        <div class="swiper-slide"><img src="images/Комфорт_2.2.jpg" class="w-full h-full object-cover"></div>
+                        <div class="swiper-slide"><img src="images/Комфорт_2.3.jpg" class="w-full h-full object-cover"></div>
+                        <div class="swiper-slide"><img src="images/Комфорт_2.4.jpg" class="w-full h-full object-cover"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 p-10 lg:p-16">
+                <h1 class="text-4xl italic mb-4">Двухместный номер «Комфорт»</h1>
+                <div class="flex items-center gap-4 text-amber-800 font-bold mb-8">
+                    <span>от 1 500 ₽ / сутки</span>
+                    <span class="w-2 h-2 bg-stone-200 rounded-full"></span>
+                    <span>1 комната • 2 места</span>
+                </div>
+
+                <p class="text-stone-600 mb-8 leading-relaxed">
+                    Уютный двухместный номер с современной отделкой, продуманный для комфортного отдыха. В номере две удобные кровати Springbox, которые можно поставить как вместе, так и отдельно, шкаф для вещей, прикроватные тумбочки, столик и стулья.
+                </p>
+
+                <h3 class="uppercase text-xs font-black tracking-widest mb-6 border-b pb-2 text-stone-400">Удобства и услуги</h3>
+                <div class="grid grid-cols-2 gap-y-3 text-sm italic text-stone-700 mb-10">
+                    <p>✓ Кондиционер</p> <p>✓ Телевизор</p>
+                    <p>✓ Wi-Fi</p> <p>✓ Душ и туалет</p>
+                    <p>✓ Постельное белье</p> <p>✓ Душевые принадлежности</p>
+                    <p>✓ Холодильник</p> <p>✓ Балкон / Терраса</p>
+                    <p>✓ Полотенца</p> <p>✓ Вид на двор/улицу</p>
+                </div>
+
+                <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw=="
+                   target="_blank"
+                   class="block w-full bg-stone-900 text-white text-center py-5 uppercase font-bold tracking-[0.2em] shadow-xl hover:bg-amber-800 transition">
+                    Забронировать
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        new Swiper(".roomSwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true }
+        });
+    </script>
+</body>
+</html>
