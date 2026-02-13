@@ -14,7 +14,7 @@
 
         /* ===== БАЗОВЫЕ СТИЛИ ===== */
 html {
-    overflow-y: scroll !important;  /* Всегда видимый скроллбар */
+    overflow-y: scroll !important;
     overflow-x: hidden !important;
     scroll-behavior: smooth;
     background-color: #1a1a1a;
@@ -25,14 +25,14 @@ body {
     padding: 0;
     width: 100%;
     overflow-x: hidden !important;
-    overflow-y: hidden !important;  /* <- ВАЖНО: hidden, а не auto/visible */
+    overflow-y: hidden !important;
     font-family: 'Raleway', sans-serif;
     background-color: #1a1a1a;
     color: #e5e5e5;
     min-height: 100vh;
 }
 
-        /* ===== SWIPER — ПОЛНОСТЬЮ РАБОЧИЙ ===== */
+        /* ===== SWIPER ===== */
         .swiper {
             overflow: hidden !important;
             width: 100%;
@@ -171,25 +171,27 @@ body {
         .text-stone-200 { color: #e5e5e5 !important; }
         .text-stone-300 { color: #d4d4d4 !important; }
         .text-stone-100 { color: #f5f5f5 !important; }
-        /* ИСПРАВЛЕНИЕ КАРТЫ — РАБОТАЕТ 100% */
-#map,
-#map *,
-.ymaps-map,
-.ymaps-glass,
-.ymaps-layers-pane,
-.ymaps-copyrights-pane {
-    overflow-y: visible !important;
-    overflow-x: visible !important;
-}
 
-.ymaps-map {
-    height: 100% !important;
-    width: 100% !important;
-}
+        /* КАРТА */
+        #map,
+        #map *,
+        .ymaps-map,
+        .ymaps-glass,
+        .ymaps-layers-pane,
+        .ymaps-copyrights-pane {
+            overflow-y: visible !important;
+            overflow-x: visible !important;
+        }
 
-#map {
-    overflow: visible !important;
-}
+        .ymaps-map {
+            height: 100% !important;
+            width: 100% !important;
+        }
+
+        #map {
+            overflow: visible !important;
+        }
+
     </style>
 </head>
 <body>
@@ -620,25 +622,24 @@ body {
     });
 
     // AOS
-AOS.init({
-    once: false,
-    mirror: true,
-    duration: 1000,
-    offset: 50,
-    easing: 'ease-in-out',
-    anchorPlacement: 'top-bottom',
-    disable: false,        // анимация на всех устройствах
-    startEvent: 'DOMContentLoaded',
-    initClassName: 'aos-init',
-    animatedClassName: 'aos-animate',
-    useClassNames: false,
-    throttleDelay: 99,
-    debounceDelay: 50
-});
+    AOS.init({
+        once: true,
+        mirror: true,
+        duration: 1000,
+        offset: 50,
+        easing: 'ease-in-out',
+        anchorPlacement: 'top-bottom',
+        disable: false,
+        startEvent: 'DOMContentLoaded',
+        initClassName: 'aos-init',
+        animatedClassName: 'aos-animate',
+        useClassNames: false,
+        throttleDelay: 99,
+        debounceDelay: 50
+    });
 
     // SWIPER - ИНИЦИАЛИЗАЦИЯ
     setTimeout(() => {
-        // Слайдеры территории
         new Swiper(".poolSwiper", {
             loop: true,
             pagination: { el: ".swiper-pagination", clickable: true },
@@ -670,93 +671,93 @@ AOS.init({
             autoplay: { delay: 3000 }
         });
 
-new Swiper(".gallerySwiper", {
-    slidesPerView: 1,
-    centeredSlides: true,
-    loop: true,
-    spaceBetween: 0,
-    speed: 500,
-    grabCursor: true,
+        new Swiper(".gallerySwiper", {
+            slidesPerView: 1,
+            centeredSlides: true,
+            loop: true,
+            spaceBetween: 0,
+            speed: 500,
+            grabCursor: true,
 
     // Красивая анимация масштаба
     on: {
-        init: function() {
-            this.slides.forEach(slide => {
-                const img = slide.querySelector('.gallery-image');
-                if (img) {
-                    if (slide.classList.contains('swiper-slide-active')) {
-                        img.style.transform = 'scale(1)';
-                        img.style.opacity = '1';
-                    } else {
-                        img.style.transform = 'scale(0.85)';
-                        img.style.opacity = '0.7';
+            init: function() {
+                this.slides.forEach(slide => {
+                    const img = slide.querySelector('.gallery-image');
+                    if (img) {
+                        if (slide.classList.contains('swiper-slide-active')) {
+                            img.style.transform = 'scale(1)';
+                            img.style.opacity = '1';
+                        } else {
+                            img.style.transform = 'scale(0.85)';
+                            img.style.opacity = '0.7';
+                        }
                     }
+                });
+            },
+            slideChangeTransitionStart: function() {
+                this.slides.forEach(slide => {
+                    const img = slide.querySelector('.gallery-image');
+                    if (img) {
+                        if (slide.classList.contains('swiper-slide-active')) {
+                            img.style.transform = 'scale(1)';
+                            img.style.opacity = '1';
+                        } else {
+                            img.style.transform = 'scale(0.85)';
+                            img.style.opacity = '0.7';
+                        }
+                    }
+                });
+            }
+        },
+
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+        },
+
+        // АВТОПРОКРУТКА (опционально, можно убрать)
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: true
+        }
+        });
+        }, 100);
+
+        // МОБИЛЬНОЕ МЕНЮ
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        if (menuBtn && mobileMenu && menuIcon) {
+            menuBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                if (mobileMenu.classList.contains('mobile-hidden')) {
+                    mobileMenu.classList.remove('mobile-hidden');
+                    mobileMenu.classList.add('mobile-visible');
+                    menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+                } else {
+                    mobileMenu.classList.remove('mobile-visible');
+                    mobileMenu.classList.add('mobile-hidden');
+                    menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
                 }
             });
-        },
-        slideChangeTransitionStart: function() {
-            this.slides.forEach(slide => {
-                const img = slide.querySelector('.gallery-image');
-                if (img) {
-                    if (slide.classList.contains('swiper-slide-active')) {
-                        img.style.transform = 'scale(1)';
-                        img.style.opacity = '1';
-                    } else {
-                        img.style.transform = 'scale(0.85)';
-                        img.style.opacity = '0.7';
-                    }
-                }
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('mobile-visible');
+                    mobileMenu.classList.add('mobile-hidden');
+                    menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+                });
             });
         }
-    },
-
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-    },
-
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-    },
-
-    // АВТОПРОКРУТКА (опционально, можно убрать)
-    autoplay: {
-        delay: 4000,
-        disableOnInteraction: true
-    }
-});
-    }, 100);
-
-    // МОБИЛЬНОЕ МЕНЮ
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-
-    if (menuBtn && mobileMenu && menuIcon) {
-        menuBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-
-            if (mobileMenu.classList.contains('mobile-hidden')) {
-                mobileMenu.classList.remove('mobile-hidden');
-                mobileMenu.classList.add('mobile-visible');
-                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-            } else {
-                mobileMenu.classList.remove('mobile-visible');
-                mobileMenu.classList.add('mobile-hidden');
-                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-            }
-        });
-
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('mobile-visible');
-                mobileMenu.classList.add('mobile-hidden');
-                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-            });
-        });
-    }
 </script>
 
 </body>
