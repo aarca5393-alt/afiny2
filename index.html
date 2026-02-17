@@ -7,6 +7,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
@@ -102,7 +103,7 @@ body {
             width: 100%;
             height: calc(100vh - 72px);
             z-index: 9999;
-            background-color: #2a2a2a;
+            background-color: #303030;
             overflow-y: auto !important;
             overflow-x: hidden !important;
             display: none;
@@ -163,7 +164,7 @@ body {
         .border-amber-400 { border-color: #fbbf24 !important; }
         .border-amber-800 { border-color: #92400e !important; }
         .border-amber-900 { border-color: #78350f !important; }
-        .bg-\[#2a2a2a\] { background-color: #2a2a2a !important; }
+        .bg-\[#303030\] { background-color: #303030 !important; }
         .bg-\[#222222\] { background-color: #222222 !important; }
         .bg-\[#1e1e1e\] { background-color: #1e1e1e !important; }
         .border-\[#3a3a3a\] { border-color: #3a3a3a !important; }
@@ -196,9 +197,12 @@ body {
 </head>
 <body>
 
-<nav class="fixed top-0 left-0 w-full z-[9999] bg-[#2a2a2a] border-b border-[#3a3a3a] shadow-lg">
+<nav class="fixed top-0 left-0 w-full z-[9999] bg-[#303030] border-b border-[#3a3a3a] shadow-lg">
     <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center relative">
-        <a href="index.html" class="text-2xl font-bold tracking-widest text-amber-400 uppercase">Афины</a>
+<a href="index.html" class="flex items-center gap-3 text-2xl font-bold tracking-[0.3em] uppercase text-white">
+    <img src="images/logo.ico" alt="Логотип" class="w-10 h-10 object-contain">
+    АФИНЫ
+</a>
 
         <button id="menu-btn" class="md:hidden text-stone-100 p-2 focus:outline-none">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -255,7 +259,7 @@ body {
             <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
                 <div class="w-full lg:w-1/2 order-2 lg:order-1" data-aos="fade-right">
                     <h3 class="text-3xl md:text-4xl italic mb-6 text-amber-400">Бассейн</h3>
-                    <div class="bg-[#2a2a2a] p-6 rounded-2xl border border-[#4a4a4a]">
+                    <div class="bg-[#303030] p-6 rounded-2xl border border-[#4a4a4a]">
                         <p class="text-stone-200 leading-relaxed text-lg">
                             Просторный открытый бассейн с подогревом. Идеальное место, чтобы освежиться в жаркий день
                             или расслабиться после прогулок. Вода проходит регулярную очистку, а вокруг бассейна
