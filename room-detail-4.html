@@ -3,54 +3,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Четырёхместный номер «Комфорт» — Афины</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74KLJJY3YT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-74KLJJY3YT');
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106915975', 'ym');
+
+        ym(106915975, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106915975" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <!-- SEO Meta Tags -->
+    <title>Четырёхместный номер «Комфорт» в гостевом доме Афины, Кабардинка — цены, фото, бронирование</title>
+    <meta name="description" content="Четырёхместный номер «Комфорт» в гостевом доме Афины (Кабардинка). 4 спальных места, кондиционер, телевизор, Wi-Fi, холодильник. Цена от 2500₽. Бронируйте онлайн!">
+    <meta name="keywords" content="четырёхместный номер Кабардинка, семейный номер, номер для 4 человек, Комфорт номер">
+    <meta name="author" content="Гостевой дом Афины">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://afiny-kabardinka.ru/room-detail-4.html">
+    <meta property="og:title" content="Четырёхместный номер «Комфорт» — Гостевой дом Афины">
+    <meta property="og:description" content="Большой номер для семьи из 4 человек. От 2500₽">
+    <meta property="og:image" content="https://afiny-kabardinka.ru/images/Комфорт_4.1.jpg">
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo.png">
+
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Schema.org разметка для номера -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HotelRoom",
+        "name": "Четырёхместный номер «Комфорт»",
+        "description": "Большой и просторный номер для семьи или компании",
+        "occupancy": {"@type": "QuantitativeValue","maxValue": 4,"unitText": "человек"},
+        "numberOfRooms": 1,
+        "bed": {"@type": "BedDetails","numberOfBeds": 3,"typeOfBed": "Springbox"},
+        "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "Кондиционер"},
+            {"@type": "LocationFeatureSpecification", "name": "Телевизор"},
+            {"@type": "LocationFeatureSpecification", "name": "Wi-Fi"},
+            {"@type": "LocationFeatureSpecification", "name": "Душ"},
+            {"@type": "LocationFeatureSpecification", "name": "Холодильник"},
+            {"@type": "LocationFeatureSpecification", "name": "Балкон"}
+        ],
+        "priceRange": "от 2500 ₽"
+    }
+    </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Raleway:wght@300;400;600&display=swap');
-        h1, h2 { font-family: 'Playfair Display', serif; }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
         body { font-family: 'Raleway', sans-serif; background: #1a1a1a; color: #f0f0f0; }
         .dark-card { background-color: #2a2a2a; border: 1px solid #3a3a3a; }
+
+        .swiper { width: 100%; height: 100%; }
+        .swiper-slide { text-align: center; background: #2a2a2a; display: flex; justify-content: center; align-items: center; }
+        .swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .swiper-pagination-bullet { background: #fbbf24 !important; opacity: 0.5; }
+        .swiper-pagination-bullet-active { opacity: 1; background: #fbbf24 !important; }
+
+        #booking_iframe { margin: 40px auto; max-width: 1200px; padding: 20px; background: #2a2a2a; border-radius: 16px; border: 1px solid #3a3a3a; }
+        #booking_iframe iframe { border-radius: 12px !important; background: #2a2a2a !important; min-height: 500px; }
+        #bn_iframe { position: absolute; right: 20px; bottom: 10px; font-size: 12px; z-index: 10; }
+        #bn_iframe a { background: #2a2a2a !important; color: #fbbf24 !important; padding: 5px 10px; border: 1px solid #3a3a3a; font-size: 10px; text-transform: uppercase; text-decoration: none; }
+        #bn_iframe a:hover { background: #b45309 !important; color: white !important; }
+
+        .price-badge { background: linear-gradient(135deg, #b45309 0%, #92400e 100%); }
+        .feature-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: #1e1e1e; border-radius: 8px; border-left: 3px solid #fbbf24; }
     </style>
 </head>
 <body>
-    <div class="container mx-auto px-6 py-12 max-w-6xl">
-        <a href="rooms.html" class="mb-8 inline-block text-stone-400 hover:text-amber-400 font-bold transition">← К списку номеров</a>
-        <div class="dark-card flex flex-col lg:flex-row shadow-2xl rounded-2xl overflow-hidden">
+
+    <!-- Навигация -->
+    <nav class="bg-[#2a2a2a] py-6 border-b border-[#3a3a3a] fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="rooms.html" class="text-amber-400 font-bold uppercase tracking-widest text-xs hover:text-amber-300 transition flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                К списку номеров
+            </a>
+            <h1 class="text-xl italic text-amber-400 hidden md:block">Четырёхместный номер «Комфорт»</h1>
+            <div class="w-20"></div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <div class="container mx-auto px-6 py-24 max-w-6xl">
+
+        <!-- Хлебные крошки -->
+        <div class="text-sm text-stone-400 mb-8" data-aos="fade-up">
+            <a href="index.html" class="hover:text-amber-400 transition">Главная</a> /
+            <a href="rooms.html" class="hover:text-amber-400 transition">Номера</a> /
+            <span class="text-amber-400">Четырёхместный номер «Комфорт»</span>
+        </div>
+
+        <!-- Карточка номера -->
+        <div class="dark-card flex flex-col lg:flex-row shadow-2xl rounded-2xl overflow-hidden" data-aos="fade-up">
+
+            <!-- Левая часть - слайдер -->
             <div class="lg:w-1/2 relative h-[400px] lg:h-auto">
                 <div class="swiper roomSwiper h-full">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="images/Комфорт_4.1.jpg" class="w-full h-full object-cover"></div>
-                        <div class="swiper-slide"><img src="images/Комфорт_4.2.jpg" class="w-full h-full object-cover"></div>
-                        <div class="swiper-slide"><img src="images/Комфорт_4.3.jpg" class="w-full h-full object-cover"></div>
-                        <div class="swiper-slide"><img src="images/Комфорт_4.4.jpg" class="w-full h-full object-cover"></div>
+                        <div class="swiper-slide"><img src="images/Комфорт_4.1.jpg" alt="Четырёхместный номер Комфорт вид 1"></div>
+                        <div class="swiper-slide"><img src="images/Комфорт_4.2.jpg" alt="Четырёхместный номер Комфорт вид 2"></div>
+                        <div class="swiper-slide"><img src="images/Комфорт_4.3.jpg" alt="Четырёхместный номер Комфорт вид 3"></div>
+                        <div class="swiper-slide"><img src="images/Комфорт_4.4.jpg" alt="Четырёхместный номер Комфорт вид 4"></div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
+                <div class="absolute bottom-4 left-4 price-badge text-white px-6 py-3 rounded-lg text-2xl font-bold z-10 shadow-lg">
+                    от 2 500 ₽ / сутки
+                </div>
             </div>
+
+            <!-- Правая часть - информация -->
             <div class="lg:w-1/2 p-10 lg:p-16">
                 <h1 class="text-4xl italic mb-4 text-amber-300">Четырёхместный номер «Комфорт»</h1>
-                <div class="flex items-center gap-4 text-amber-500 font-bold mb-6">
-                    <span>от 2 500 ₽ / сутки</span>
+
+                <div class="flex items-center gap-4 text-amber-500 font-bold mb-8">
+                    <span class="bg-[#3a3a3a] px-4 py-2 rounded-full text-sm">1 комната</span>
                     <span class="w-2 h-2 bg-stone-600 rounded-full"></span>
-                    <span>1 комната • 4 места</span>
+                    <span class="bg-[#3a3a3a] px-4 py-2 rounded-full text-sm">4 места</span>
                 </div>
-                <p class="text-stone-200 mb-4 leading-relaxed">
-                    Уютный номер с современной отделкой. В номере двуспальная и две односпальные кровати Springbox (можно сдвигать), шкаф, прикроватные тумбочки, столик и стулья.
-                </p>
-                <h3 class="uppercase text-xs font-black tracking-widest mb-6 border-b border-[#4a4a4a] pb-2 text-amber-400">Удобства</h3>
-                <div class="grid grid-cols-2 gap-y-3 text-sm italic text-stone-300 mb-10">
-                    <p>✓ Кондиционер</p> <p>✓ Телевизор</p>
-                    <p>✓ Wi-Fi</p> <p>✓ Душ и туалет</p>
-                    <p>✓ Холодильник</p> <p>✓ Шкаф/Гардероб</p>
-                    <p>✓ Балкон*</p> <p>✓ Косметические наборы</p>
+
+                <div class="prose prose-invert max-w-none mb-8">
+                    <p class="text-stone-200 leading-relaxed text-lg">
+                        Большой и просторный номер для семьи или компании.
+                        В номере двуспальная и две односпальные кровати Springbox, которые можно сдвигать.
+                        Вся необходимая мебель для комфортного проживания четырёх человек.
+                    </p>
                 </div>
-                <a href="https://link.2gis.ru/4.3/25C27D96/..." target="_blank" class="block w-full bg-amber-700 text-white text-center py-5 uppercase font-bold tracking-[0.2em] shadow-xl hover:bg-amber-800 transition rounded-md">Забронировать</a>
+
+                <!-- Особенности -->
+                <div class="mb-8">
+                    <h3 class="text-xl italic mb-4 text-amber-400">Особенности номера</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div class="feature-item"><span class="text-amber-400 text-xl">✓</span><span class="text-stone-200">Двуспальная кровать Springbox</span></div>
+                        <div class="feature-item"><span class="text-amber-400 text-xl">✓</span><span class="text-stone-200">2 односпальные кровати</span></div>
+                        <div class="feature-item"><span class="text-amber-400 text-xl">✓</span><span class="text-stone-200">Шкаф-купе</span></div>
+                        <div class="feature-item"><span class="text-amber-400 text-xl">✓</span><span class="text-stone-200">Обеденный стол</span></div>
+                        <div class="feature-item"><span class="text-amber-400 text-xl">✓</span><span class="text-stone-200">4 стула</span></div>
+                        <div class="feature-item"><span class="text-amber-400 text-xl">✓</span><span class="text-stone-200">Балкон*</span></div>
+                    </div>
+                    <p class="text-xs text-stone-400 mt-3 italic">* наличие балкона уточняйте при бронировании</p>
+                </div>
+
+                <h3 class="text-xl italic mb-4 text-amber-400 border-b border-amber-800 pb-2">Все удобства</h3>
+                <div class="grid grid-cols-2 gap-y-4 text-stone-300 mb-10">
+                    <div class="flex items-center gap-2"><span class="text-amber-500">✓</span> Кондиционер</div>
+                    <div class="flex items-center gap-2"><span class="text-amber-500">✓</span> Телевизор</div>
+                    <div class="flex items-center gap-2"><span class="text-amber-500">✓</span> Wi-Fi</div>
+                    <div class="flex items-center gap-2"><span class="text-amber-500">✓</span> Холодильник</div>
+                    <div class="flex items-center gap-2"><span class="text-amber-500">✓</span> Душ и туалет</div>
+                    <div class="flex items-center gap-2"><span class="text-amber-500">✓</span> Косметические наборы</div>
+                    <div class="flex items-center gap-2"><span class="text-amber-500">✓</span> Постельное белье</div>
+                    <div class="flex items-center gap-2"><span class="text-amber-500">✓</span> Полотенца</div>
+                </div>
+
+                <a href="https://link.2gis.ru/4.3/25C27D96/aHR0cDovL3Jlc2VydmF0aW9uc3RlcHMucnUvcm9vbXMvaW5kZXgvZmU2NjFmMDMtNzAwNi00YzBlLTk1NWItNDI3NzllMDYyNmQ0Pw=="
+                   target="_blank"
+                   class="block w-full bg-amber-700 text-white text-center py-5 uppercase font-bold tracking-[0.2em] shadow-xl hover:bg-amber-800 transition rounded-md text-sm">
+                    Забронировать этот номер
+                </a>
+            </div>
+        </div>
+
+        <!-- Дополнительная информация -->
+        <div class="grid md:grid-cols-2 gap-8 mt-16">
+            <div class="bg-[#2a2a2a] p-8 rounded-2xl border border-[#4a4a4a]" data-aos="fade-right">
+                <h3 class="text-2xl italic mb-6 text-amber-400">Условия проживания</h3>
+                <ul class="space-y-4 text-stone-200">
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Заезд: с 12:00</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Выезд: до 10:00</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Ранний заезд — при наличии</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Минимальный срок: 5 суток</li>
+                </ul>
+            </div>
+            <div class="bg-[#2a2a2a] p-8 rounded-2xl border border-[#4a4a4a]" data-aos="fade-left">
+                <h3 class="text-2xl italic mb-6 text-amber-400">Важно знать</h3>
+                <ul class="space-y-4 text-stone-200">
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Тишина после 23:00</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Курение только на улице</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Бесплатная парковка</li>
+                    <li class="flex gap-3"><span class="text-amber-500 font-bold">•</span> Видеонаблюдение</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Похожие номера -->
+        <div class="mt-20" data-aos="fade-up">
+            <h3 class="text-3xl italic mb-10 text-amber-400 text-center">Другие номера</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="room-detail-2.html" class="block bg-[#2a2a2a] rounded-xl overflow-hidden border border-[#3a3a3a] hover:border-amber-700 transition group">
+                    <img src="images/Комфорт_2.1.jpg" alt="Двухместный номер" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="p-4 text-center"><h4 class="text-amber-300 font-bold">Двухместный</h4><p class="text-stone-400 text-sm">от 1 500 ₽</p></div>
+                </a>
+                <a href="room-detail-3.html" class="block bg-[#2a2a2a] rounded-xl overflow-hidden border border-[#3a3a3a] hover:border-amber-700 transition group">
+                    <img src="images/Комфорт_3.1.jpg" alt="Трёхместный номер" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="p-4 text-center"><h4 class="text-amber-300 font-bold">Трёхместный</h4><p class="text-stone-400 text-sm">от 1 800 ₽</p></div>
+                </a>
+                <a href="room-detail-kitchen.html" class="block bg-[#2a2a2a] rounded-xl overflow-hidden border border-[#3a3a3a] hover:border-amber-700 transition group">
+                    <img src="images/Кухня_4.1.jpg" alt="Номер с кухней" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="p-4 text-center"><h4 class="text-amber-300 font-bold">С личной кухней</h4><p class="text-stone-400 text-sm">от 3 500 ₽</p></div>
+                </a>
             </div>
         </div>
     </div>
+
+    <!-- Модуль бронирования Bnovo -->
+    <div style="background: #1a1a1a; padding: 40px 0;">
+        <div class="container mx-auto px-6">
+            <div id="booking_iframe" style="position: relative; padding-bottom: 30px; width: 100%; background: #2a2a2a; border-radius: 16px; border: 1px solid #3a3a3a; padding: 20px;">
+                <div id="bn_iframe"><a href="https://bnovo.ru/bnovo-mb/?utm_source=client_modul_br" target="_blank">Система управления отелем Bnovo</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>new Swiper(".roomSwiper", { loop: true, pagination: { el: ".swiper-pagination", clickable: true } });</script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://widget.reservationsteps.ru/iframe/library/dist/booking_iframe.js"></script>
+
+    <script>
+        // Инициализация Swiper
+        new Swiper(".roomSwiper", {
+            loop: true,
+            pagination: { el: ".swiper-pagination", clickable: true },
+            autoplay: { delay: 3000, disableOnInteraction: false }
+        });
+
+        // Инициализация AOS
+        AOS.init({ duration: 800, once: true });
+
+        // Инициализация Bnovo
+        setTimeout(() => {
+            try {
+                if (typeof BookingIframe !== 'undefined') {
+                    var BnovoBookFrame = new BookingIframe({
+                        html_id: 'booking_iframe',
+                        uid: 'fe661f03-7006-4c0e-955b-42779e0626d4',
+                        lang: 'ru',
+                        width: 'auto',
+                        height: 'auto',
+                        rooms: '',
+                        IsMobile: '0',
+                        scroll_to_rooms: '0',
+                        fixed_header_selector: 'nav',
+                        fixed_mobile_header_width: 800,
+                        fixed_mobile_header_selector: 'nav',
+                        fixed_footer_selector: '',
+                        fixed_mobile_footer_width: 800,
+                        fixed_mobile_footer_selector: ''
+                    });
+                    BnovoBookFrame.init();
+                }
+            } catch(e) { console.log('Bnovo error:', e); }
+        }, 300);
+
+        // Защита от ошибок
+        window.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IFRAME' || (e.message && e.message.includes('css/main.css'))) {
+                e.preventDefault();
+                return false;
+            }
+        }, true);
+    </script>
 </body>
 </html>
