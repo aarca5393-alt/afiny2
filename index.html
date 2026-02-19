@@ -123,8 +123,15 @@
         .text-stone-300 { color: #d4d4d4 !important; }
         .text-stone-100 { color: #f5f5f5 !important; }
         #booking_iframe { margin: 40px auto; max-width: 1200px; padding: 20px; background: #2a2a2a; border-radius: 16px; border: 1px solid #3a3a3a; box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5); }
-        #booking_iframe iframe { border-radius: 12px !important; background: #2a2a2a !important; min-height: 500px; }
-        iframe[src*="reservationsteps"] { background: #2a2a2a !important; }
+    #booking_iframe iframe {
+        border-radius: 12px !important;
+        background: #2a2a2a !important;
+        min-height: 600px;
+        width: 100% !important;
+    }
+    iframe[src*="reservationsteps"] {
+        background: #2a2a2a !important;
+    }
         #bn_iframe { position: absolute; right: 20px; bottom: 10px; font-size: 12px; line-height: 1em; opacity: 0.8; z-index: 10; }
         #bn_iframe a { background: #2a2a2a !important; color: #fbbf24 !important; padding: 5px 10px; border-radius: 4px; text-decoration: none; border: 1px solid #3a3a3a; font-family: 'Raleway', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
         #bn_iframe a:hover { background: #b45309 !important; color: white !important; transition: all 0.3s ease; }
@@ -522,17 +529,22 @@
 </section>
 
 <!-- Модуль бронирования Bnovo -->
-<div style="background: #1e1e1e; padding: 40px 0;">
-    <div class="container mx-auto px-6">
-        <div id="booking_iframe" style="position: relative; padding-bottom: 30px; width: 100%; background: #2a2a2a; border-radius: 16px; border: 1px solid #3a3a3a; padding: 20px;">
-            <div id="bn_iframe">
-                <div>
+
+<section style="background: #1e1e1e; padding: 60px 0;">
+
+        <div class="text-center mb-12">
+            <h2 class="text-4xl italic mb-4 text-amber-400">Забронировать номер</h2>
+            <div class="h-1 w-20 bg-amber-700 mx-auto"></div>
+            <p class="text-stone-300 mt-6">Выберите даты и номер для бронирования</p>
+        </div>
+            <div id="booking_iframe" style="position: relative; width: 100%; background: #2a2a2a;">
+                <div id="bn_iframe" style="position: absolute; right: 20px; bottom: 10px; font-size: 12px; line-height: 1em; opacity: 0.8; z-index: 10;">
                     <a href="https://bnovo.ru/bnovo-mb/?utm_source=client_modul_br" id="bnovo_link" target="_blank" style="background: #2a2a2a !important; color: #fbbf24 !important; padding: 5px 10px; border-radius: 4px; text-decoration: none; border: 1px solid #3a3a3a; font-family: 'Raleway', sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;">Система управления отелем Bnovo</a>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+</section>
+
+
 
 <!-- Скрипты -->
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=8e8d3d2c-8b23-4b1f-9c3e-9e3c8d7f5b2a"></script>
